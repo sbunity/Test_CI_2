@@ -31,6 +31,11 @@ platform :ios do
 
   desc "Deliver a new Release build to the App Store"
   lane :release do
+    # Встановлення CocoaPods для проектів, які містять Podfile
+    cocoapods(
+      clean_install: true,
+      podfile: "#{ENV['IOS_BUILD_PATH']}/iOS/"
+    )
     build
     upload_to_app_store
   end
@@ -38,6 +43,11 @@ platform :ios do
   desc "Deliver a new Beta build to Apple TestFlight"
   lane :beta do
     # Missing Export Compliance can also be set through Deliverfile
+    # Встановлення CocoaPods для проектів, які містять Podfile
+    cocoapods(
+      clean_install: true,
+      podfile: "#{ENV['IOS_BUILD_PATH']}/iOS/"
+    )
     update_info_plist(
       xcodeproj: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj",
       plist_path: 'Info.plist',
@@ -72,8 +82,8 @@ platform :ios do
       profile_uuid: ENV["sigh_#{ENV['IOS_BUNDLE_ID']}_appstore"]
     )
 
-    build_app( #alias: gym
-      project: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj",
+   build_app(
+      workspace: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcworkspace",
       scheme: 'Unity-iPhone',
       xcargs: '-allowProvisioningUpdates'
     )
