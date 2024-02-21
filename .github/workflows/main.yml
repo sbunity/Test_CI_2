@@ -82,6 +82,14 @@ jobs:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
 
+      ###########################
+      # Install Pods            #
+      ###########################
+      - name: Install Pods
+        run: |
+          cd ${{ github.workspace }}/build/${{ matrix.targetPlatform }}/iOS/ # Змініть шлях до вашого Podfile
+          pod install --repo-update
+
       ###########################################
       #  Fix File Permissions and Run fastlane  #
       ###########################################
