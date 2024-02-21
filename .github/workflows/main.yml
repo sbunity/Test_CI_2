@@ -74,6 +74,14 @@ jobs:
         uses: actions/checkout@v4
 
       ###########################
+      # Install Pods            #
+      ###########################
+      - name: Install Pods
+        run: |
+          cd ${{ github.workspace }}/build/${{ matrix.targetPlatform }}/iOS/ # Змініть шлях до вашого Podfile
+          bundle exec pod install
+
+      ###########################
       #  Download iOS Artifact  #
       ###########################
       - name: Download iOS Artifact
