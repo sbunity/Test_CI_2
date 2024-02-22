@@ -1,10 +1,6 @@
 org, repo = (ENV["GITHUB_REPOSITORY"]||"").split("/")
 match_org, match_repo = (ENV["MATCH_REPOSITORY"]||"").split("/")
 
-# Вивід значень match_org та match_repo
-puts "match_org: #{match_org}"
-puts "match_repo: #{match_repo}"
-
 platform :ios do
   lane :init_ci do
     github_action(
