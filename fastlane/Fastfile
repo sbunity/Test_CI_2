@@ -48,6 +48,7 @@ platform :ios do
       clean_install: true,
       podfile: "#{ENV['IOS_BUILD_PATH']}/iOS/"
     )
+    match(type: "appstore", readonly: false)
     update_info_plist(
       xcodeproj: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj",
       plist_path: 'Info.plist',
