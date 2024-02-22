@@ -21,12 +21,12 @@ platform :ios do
       key_content: ENV['APPSTORE_P8']
     )
 
-    #match(
-    #  type: "appstore",
-    #  storage_mode: "git",
-    #  git_url: "git@github.com:#{match_org}/#{match_repo}.git",
-    #  app_identifier: ENV["IOS_BUNDLE_ID"]
-    #)
+    match(
+      type: "appstore",
+      storage_mode: "git",
+      git_url: "git@github.com:#{match_org}/#{match_repo}.git",
+      app_identifier: ENV["IOS_BUNDLE_ID"]
+    )
   end
 
   desc "Deliver a new Release build to the App Store"
@@ -48,13 +48,15 @@ platform :ios do
       clean_install: true,
       podfile: "#{ENV['IOS_BUILD_PATH']}/iOS/"
     )
-    match(
-      type: "appstore",
-      readonly: false,
-      storage_mode: "git",
-      git_url: "git@github.com:#{match_org}/#{match_repo}.git",
-      app_identifier: ENV["IOS_BUNDLE_ID"]
-    )
+    
+    #match(
+    #  type: "appstore",
+    #  readonly: false,
+    #  storage_mode: "git",
+    #  git_url: "git@github.com:#{match_org}/#{match_repo}.git",
+    #  app_identifier: ENV["IOS_BUNDLE_ID"]
+    #)
+
     update_info_plist(
       xcodeproj: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj",
       plist_path: 'Info.plist',
