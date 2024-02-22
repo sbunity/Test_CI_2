@@ -103,6 +103,16 @@ jobs:
           IOS_BUNDLE_ID: com.TestCIRealProject.TestCIRealProject # Change it to match your Unity bundle id
           PROJECT_NAME: TestCIRealProject # Change it to match your project's name
         run: |
+          echo "APPLE_CONNECT_EMAIL: $APPLE_CONNECT_EMAIL"
+          echo "APPLE_DEVELOPER_EMAIL: $APPLE_DEVELOPER_EMAIL"
+          echo "APPLE_TEAM_ID: $APPLE_TEAM_ID"
+          echo "MATCH_REPOSITORY: $MATCH_REPOSITORY"
+          echo "MATCH_DEPLOY_KEY: $MATCH_DEPLOY_KEY"
+          echo "MATCH_PASSWORD: $MATCH_PASSWORD"
+          echo "APPSTORE_ISSUER_ID: $APPSTORE_ISSUER_ID"
+          echo "APPSTORE_KEY_ID: $APPSTORE_KEY_ID"
+          echo "APPSTORE_P8: $APPSTORE_P8"
+          echo "IOS_BUILD_PATH: $IOS_BUILD_PATH"
           eval "$(ssh-agent -s)"
           ssh-add - <<< "${MATCH_DEPLOY_KEY}"
           find $IOS_BUILD_PATH -type f -name "**.sh" -exec chmod +x {} \;
