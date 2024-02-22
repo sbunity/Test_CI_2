@@ -38,7 +38,13 @@ platform :ios do
       podfile: "#{ENV['IOS_BUILD_PATH']}/iOS/"
     )
     build
-    upload_to_app_store
+    upload_to_app_store(
+      submit_for_review: false,
+      automatic_release: false,
+      force: true,
+      skip_screenshots: true,
+      run_precheck_before_submit: false
+    )
   end
 
   desc "Deliver a new Beta build to Apple TestFlight"
