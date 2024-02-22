@@ -50,7 +50,7 @@ platform :ios do
     )
     match(
       type: "appstore",
-      readonly: false,
+      readonly: true,
       storage_mode: "git",
       git_url: "git@github.com:#{match_org}/#{match_repo}.git",
       app_identifier: ENV["IOS_BUNDLE_ID"]
