@@ -50,10 +50,10 @@ platform :ios do
     )
     match(
       type: "appstore",
-      readonly: true
-    #  storage_mode: "git",
-    #  git_url: "git@github.com:#{match_org}/#{match_repo}.git",
-    #  app_identifier: ENV["IOS_BUNDLE_ID"]
+      readonly: false,
+      storage_mode: "git",
+      git_url: "git@github.com:#{match_org}/#{match_repo}.git",
+      app_identifier: ENV["IOS_BUNDLE_ID"]
     )
     update_info_plist(
       xcodeproj: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj",
