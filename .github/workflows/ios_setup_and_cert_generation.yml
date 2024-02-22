@@ -3,8 +3,8 @@ name: iOS Setup and Generate Certs
 on: workflow_dispatch
 
 jobs:
-  init_fastlane:
-    runs-on: ubuntu-latest
+  setup_and_generate_certs:
+    runs-on: macos-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -26,23 +26,10 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           MATCH_REPOSITORY: ${{ secrets.MATCH_REPOSITORY }}
 
-  generate_certs:
-    needs: init_fastlane
-    runs-on: macos-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-      
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.2
-          bundler-cache: true
-
       - name: Generate iOS Certificates
         run: |
           eval "$(ssh-agent -s)"
-          ssh-add - <<< "${MATCH_DEPLOY_KEY}"
+          ssh-add - <<< "${{ secrets.MATCH_DEPLOY_KEY }}"
           bundle exec fastlane ios sync_certificates
         env:
           APPSTORE_ISSUER_ID: ${{ secrets.APPSTORE_ISSUER_ID }}
