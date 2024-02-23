@@ -97,13 +97,17 @@ platform :ios do
       profile_name: ENV["sigh_#{ENV['IOS_BUNDLE_ID']}_appstore_profile-name"],
       profile_uuid: ENV["sigh_#{ENV['IOS_BUNDLE_ID']}_appstore"]
     )
-
-    build_app(
-      workspace: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcworkspace",
+    build_app( #alias: gym
+      project: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj",
       scheme: 'Unity-iPhone',
-      xcargs: '-allowProvisioningUpdates',
-      #destination: "platform=iOS Simulator,name=iPhone 13" #Параметр destination вказує конкретний пристрій або симулятор, на якому буде виконано збірку чи тестування
+      xcargs: '-allowProvisioningUpdates'
     )
+    #build_app(
+    #  workspace: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcworkspace",
+    #  scheme: 'Unity-iPhone',
+    #  xcargs: '-allowProvisioningUpdates',
+    #  #destination: "platform=iOS Simulator,name=iPhone 13" #Параметр destination вказує конкретний пристрій або симулятор, на якому буде виконано збірку чи тестування
+    #)
   end
 
 end
