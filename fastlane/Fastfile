@@ -4,7 +4,6 @@ match_org, match_repo = (ENV["MATCH_REPOSITORY"]||"").split("/")
 platform :ios do
   lane :init_ci do
     xcversion(version: "14.2") # Вкажіть версію Xcode, яку ви хочете використовувати
-    xcode_select "/Applications/Xcode_14.2.app" # Вкажіть шлях до вашої версії Xcode 14.2
     github_action(
       api_token: ENV["GH_PAT"],
       org: org,
