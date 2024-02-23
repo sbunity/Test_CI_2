@@ -102,7 +102,7 @@ platform :ios do
       workspace: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcworkspace",
       scheme: 'Unity-iPhone',
       xcargs: '-allowProvisioningUpdates',
-      destination: "platform=iOS Simulator,name=iPhone 13" #Параметр destination вказує конкретний пристрій або симулятор, на якому буде виконано збірку чи тестування
+      №destination: "platform=iOS Simulator,name=iPhone 13" #Параметр destination вказує конкретний пристрій або симулятор, на якому буде виконано збірку чи тестування
     )
   end
 
