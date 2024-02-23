@@ -34,15 +34,6 @@ jobs:
           restore-keys: Library-
 
       ###########################
-      #         Test            #
-      ###########################
-      - name: List files in workspace directory
-        run: ls /Users/runner/work/Test_CI_2/Test_CI_2/build/iOS/iOS/
-
-      - name: Check if workspace file exists
-        run: test -f /Users/runner/work/Test_CI_2/Test_CI_2/build/iOS/iOS/Unity-iPhone.xcworkspace && echo "Workspace file exists" || echo "Workspace file does not exist"
-
-      ###########################
       #          Disk           #
       ###########################
       - if: matrix.targetPlatform == 'Android'
@@ -90,6 +81,16 @@ jobs:
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
+
+      ###########################
+      #         Test            #
+      ###########################
+      - name: List files in workspace directory
+        run: ls /Users/runner/work/Test_CI_2/Test_CI_2/build/iOS/iOS/
+
+      - name: Check if workspace file exists
+        run: test -f /Users/runner/work/Test_CI_2/Test_CI_2/build/iOS/iOS/Unity-iPhone.xcworkspace && echo "Workspace file exists" || echo "Workspace file does not exist"
+
 
       ###########################################
       #  Fix File Permissions and Run fastlane  #
