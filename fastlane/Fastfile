@@ -101,7 +101,8 @@ platform :ios do
     build_app(
       workspace: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcworkspace",
       scheme: 'Unity-iPhone',
-      xcargs: '-allowProvisioningUpdates'
+      xcargs: '-allowProvisioningUpdates',
+      destination: "platform=iOS" #Параметр destination вказує конкретний пристрій або симулятор, на якому буде виконано збірку чи тестування
     )
   end
 
