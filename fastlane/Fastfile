@@ -99,11 +99,16 @@ platform :ios do
       profile_uuid: ENV["sigh_#{ENV['IOS_BUNDLE_ID']}_appstore"]
     )
 
-   build_app(
-      workspace: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcworkspace",
+    build_app( #alias: gym
+      project: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj",
       scheme: 'Unity-iPhone',
       xcargs: '-allowProvisioningUpdates'
     )
+   #build_app(
+   #   workspace: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcworkspace",
+   #   scheme: 'Unity-iPhone',
+   #   xcargs: '-allowProvisioningUpdates'
+   #)
   end
 
 end
