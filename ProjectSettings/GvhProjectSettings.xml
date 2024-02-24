@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <projectSettings>
-  <projectSetting name="com.google.external-dependency-managerAnalyticsCookie" value="ae0eb74cec524733a96f44ded49ccdf9" />
+  <projectSetting name="com.google.external-dependency-managerAnalyticsCookie" value="1596f7bdcb3445fb85f8a969ae3c9f5a" />
   <projectSetting name="com.google.external-dependency-managerAnalyticsEnabled" value="True" />
   <projectSetting name="Google.IOSResolver.AutoPodToolInstallInEditor" value="True" />
   <projectSetting name="Google.IOSResolver.CocoapodsIntegrationMethod" value="1" />
