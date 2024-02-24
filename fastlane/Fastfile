@@ -2,7 +2,7 @@ org, repo = (ENV["GITHUB_REPOSITORY"]||"").split("/")
 match_org, match_repo = (ENV["MATCH_REPOSITORY"]||"").split("/")
 
 platform :ios do
-  xcodes(version: "14.2", select_for_current_build_only: true)
+  xcodes(version: "8.1", select_for_current_build_only: true)
   lane :init_ci do
     github_action(
       api_token: ENV["GH_PAT"],
