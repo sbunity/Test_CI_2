@@ -120,8 +120,8 @@ jobs:
           #find $IOS_BUILD_PATH -type f -iname "usymtool" -exec chmod +x {} \;
           bundle install
           #bundle exec fastlane ios release
-          #bundle exec fastlane ios beta
-          bundle exec fastlane ios build
+          bundle exec fastlane ios beta
+          #bundle exec fastlane ios build
 
       ####################################
       #  Cleanup to avoid storage limit  #
